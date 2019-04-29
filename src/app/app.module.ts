@@ -10,9 +10,14 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { Login2Component } from './login2/login2.component';
+import { ChallengesComponent } from './challenges/challenges.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -23,12 +28,17 @@ import { Login2Component } from './login2/login2.component';
     HomeComponent,
     LoginComponent,
     Login2Component,
+    ChallengesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatSelectModule 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

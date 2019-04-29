@@ -15,6 +15,7 @@ export class AboutComponent implements OnInit {
   currentUserSubscription: Subscription;
   users: User[] = [];
   challenges: Challenge[] = [];
+  selectedChallenge: Challenge;
 
   constructor(
       private authenticationService: AuthenticationService,
@@ -40,6 +41,14 @@ deleteUser(id: number) {
     this.userService.delete(id).pipe(first()).subscribe(() => {
         this.loadAllUsers()
     });
+}
+
+onSelectChallenge(challenge: Challenge): void {
+    if(this.selectedChallenge === challenge){
+        this.selectedChallenge = null;
+        return;
+    }
+  this.selectedChallenge = challenge;
 }
 
 private loadAllUsers() {
