@@ -1,0 +1,21 @@
+<h1>Hi {{currentUser.firstName}}!</h1>
+<p>You're logged in with Angular 7!!</p>
+<h3>All registered users:</h3>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.email}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>
+
+<ul>
+  <li *ngFor="let challenge of challenges">
+      {{challenge.id}} {{challenge.name}} {{challenge.challengetype}}
+      <ul>
+        <li *ngFor="let challengeitem of challenge.challengeitems">
+          {{challengeitem.item}}
+        </li>
+      </ul>
+      <!-- - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a> -->
+  </li>
+</ul>
