@@ -1,8 +1,24 @@
-<p>
-  challenges works!
-</p>
-<mat-selection-list #shoes>
-    <mat-list-option *ngFor="let shoe of typesOfShoes">
-      {{shoe}}
-    </mat-list-option>
-  </mat-selection-list>
+<h3>All Challenges:</h3>
+<ul class="challenges">
+  <li *ngFor="let challenge of challenges"
+    [class.selected]="challenge === selectedChallenge"
+    (click)="onSelectChallenge(challenge)"
+  ><span class="badge">{{challenge.id}}</span>{{challenge.name}} {{challenge.challengetype}}
+      <!-- <ul>
+        <li *ngFor="let challengeitem of challenge.challengeitems">
+          {{challengeitem.item}}
+        </li>
+      </ul> -->
+      <!-- - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a> -->
+  </li>
+</ul>
+
+<div *ngIf="selectedChallenge">
+  <h3>{{selectedChallenge.name}}</h3>
+  <mat-list #challenges>
+      <mat-list-item *ngFor="let challengeitem of selectedChallenge.challengeitems">
+        {{challengeitem.item}}
+      </mat-list-item>
+    </mat-list>
+
+</div>

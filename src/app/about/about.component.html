@@ -7,25 +7,3 @@
         - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
     </li>
 </ul>
-<h3>All Challenges:</h3>
-<ul class="challenges">
-  <li *ngFor="let challenge of challenges"
-    [class.selected]="challenge === selectedChallenge"
-    (click)="onSelectChallenge(challenge)"
-  ><span class="badge">{{challenge.id}}</span>{{challenge.name}} {{challenge.challengetype}}
-      <!-- <ul>
-        <li *ngFor="let challengeitem of challenge.challengeitems">
-          {{challengeitem.item}}
-        </li>
-      </ul> -->
-      <!-- - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a> -->
-  </li>
-</ul>
-
-<div *ngIf="selectedChallenge">
-
-  <h3>{{selectedChallenge.name}}</h3>
-  <li *ngFor="let challengeitem of selectedChallenge.challengeitems">
-    {{challengeitem.item}}
-  </li>
-</div>

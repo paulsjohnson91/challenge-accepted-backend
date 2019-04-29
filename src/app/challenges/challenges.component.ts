@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
+import { User, Challenge} from '../_models';
+import { ChallengeService, AuthenticationService } from '../_services';
+import { Subscription } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-challenges',
@@ -8,10 +12,36 @@ import {MatSelectModule} from '@angular/material/select';
   styleUrls: ['./challenges.component.scss']
 })
 export class ChallengesComponent implements OnInit {
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-  constructor() { }
+  challenges: Challenge[] = [];
+  selectedChallenge: Challenge;
+  currentUserSubscription: Subscription;
+  currentUser: User;
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private challengeService: ChallengeService
+) {
+    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+        this.currentUser = user;
+    });
+}
 
   ngOnInit() {
+    this.loadAllChallenges();
   }
+
+  onSelectChallenge(challenge: Challenge): void {
+    if(this.selectedChallenge === challenge){
+        this.selectedChallenge = null;
+        return;
+    }
+  this.selectedChallenge = challenge;
+}
+
+private loadAllChallenges(){
+  this.challengeService.getAll().pipe(first()).subscribe(challenges => {
+    this.challenges = challenges;
+  })
+}
 
 }

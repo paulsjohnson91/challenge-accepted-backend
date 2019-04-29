@@ -13,11 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { Login2Component } from './login2/login2.component';
 import { ChallengesComponent } from './challenges/challenges.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import {MatSelectModule} from '@angular/material/select';
     ContactComponent,
     HomeComponent,
     LoginComponent,
-    Login2Component,
     ChallengesComponent,
   ],
   imports: [

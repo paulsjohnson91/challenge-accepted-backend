@@ -14,13 +14,10 @@ export class AboutComponent implements OnInit {
   currentUser: User;
   currentUserSubscription: Subscription;
   users: User[] = [];
-  challenges: Challenge[] = [];
-  selectedChallenge: Challenge;
 
   constructor(
       private authenticationService: AuthenticationService,
       private userService: UserService,
-      private challengeService: ChallengeService
   ) {
       this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
           this.currentUser = user;
@@ -29,7 +26,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.loadAllUsers();
-    this.loadAllChallenges();
 }
 
 ngOnDestroy() {
@@ -43,13 +39,6 @@ deleteUser(id: number) {
     });
 }
 
-onSelectChallenge(challenge: Challenge): void {
-    if(this.selectedChallenge === challenge){
-        this.selectedChallenge = null;
-        return;
-    }
-  this.selectedChallenge = challenge;
-}
 
 private loadAllUsers() {
     this.userService.getAll().pipe(first()).subscribe(users => {
@@ -57,9 +46,4 @@ private loadAllUsers() {
     });
 }
 
-private loadAllChallenges(){
-  this.challengeService.getAll().pipe(first()).subscribe(challenges => {
-    this.challenges = challenges;
-  })
-}
 }
