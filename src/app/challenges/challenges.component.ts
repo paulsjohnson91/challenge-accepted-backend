@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatListModule } from '@angular/material/list';
-import {MatSelectModule} from '@angular/material/select';
 import { User, Challenge} from '../_models';
 import { ChallengeService, AuthenticationService } from '../_services';
 import { Subscription } from 'rxjs';
@@ -39,9 +37,11 @@ export class ChallengesComponent implements OnInit {
 }
 
 private loadAllChallenges(){
+  console.log("here")
   this.challengeService.getAll().pipe(first()).subscribe(challenges => {
     this.challenges = challenges;
   })
+  console.log(this.challenges)
 }
 
 }

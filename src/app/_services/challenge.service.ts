@@ -2,17 +2,18 @@
 import { HttpClient } from '@angular/common/http';
 
 import { Challenge } from '../_models';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ChallengeService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<Challenge[]>(`http://localhost:3333/challenge`);
+        return this.http.get<Challenge[]>(environment.apiUrl + `/challenge`);
     }
 
     getById(id: number) {
-        return this.http.get(`http://localhost:3333/challenge/${id}`);
+        return this.http.get(environment.apiUrl + `/challenge/${id}`);
     }
 
     // register(user: User) {
@@ -20,10 +21,10 @@ export class ChallengeService {
     // }
 
     update(challenge: Challenge) {
-        return this.http.put(`http://localhost:3333/challenge/${challenge.id}`, challenge);
+        return this.http.put(environment.apiUrl + `/challenge/${challenge.id}`, challenge);
     }
 
     delete(id: number) {
-        return this.http.delete(`http://localhost:3333/challenge/${id}`);
+        return this.http.delete(environment.apiUrl + `/challenge/${id}`);
     }
 }

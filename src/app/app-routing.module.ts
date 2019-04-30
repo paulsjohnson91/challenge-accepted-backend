@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { ChallengesComponent } from './challenges/challenges.component';
+import { CreateChallengeComponent} from './create-challenge/create-challenge.component'
 import { AuthGuard } from './_guards';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'challenges', component: ChallengesComponent, canActivate: [AuthGuard]  },
+  { path: 'createchallenge', component: CreateChallengeComponent, canActivate: [AuthGuard]  },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

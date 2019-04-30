@@ -10,14 +10,16 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule } from '@angular/material';
+import { MatNativeDateModule, MatInputModule, MatButtonModule } from '@angular/material';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { ChallengesComponent } from './challenges/challenges.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CreateChallengeComponent } from './create-challenge/create-challenge.component'
+import { MaterialModule } from './material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { MatSelectModule } from '@angular/material/select';
     HomeComponent,
     LoginComponent,
     ChallengesComponent,
+    CreateChallengeComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatNativeDateModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatSelectModule 
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MaterialModule 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
