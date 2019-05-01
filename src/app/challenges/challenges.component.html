@@ -3,7 +3,7 @@
   <li *ngFor="let challenge of challenges"
     [class.selected]="challenge === selectedChallenge"
     (click)="onSelectChallenge(challenge)"
-  ><span class="badge">{{challenge.id}}</span>{{challenge.name}} {{challenge.challengetype}}       - <a (click)="deleteChallenge(challenge.id)" class="text-danger">Delete</a>
+  ><span class="badge">{{challenge.id}}</span>{{challenge.name}} {{challenge.challengetype}}       - <a (click)="openDialog(challenge.id)" class="text-danger">Delete</a>
       <!-- <ul>
         <li *ngFor="let challengeitem of challenge.challengeitems">
           {{challengeitem.item}}
@@ -20,5 +20,4 @@
         {{challengeitem.item}}
       </mat-list-item>
     </mat-list>
-
 </div>

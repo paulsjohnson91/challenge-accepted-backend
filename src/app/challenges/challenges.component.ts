@@ -4,6 +4,7 @@ import { ChallengeService, AuthenticationService } from '../_services';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-challenges',
@@ -19,7 +20,8 @@ export class ChallengesComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private challengeService: ChallengeService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
 ) {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
         this.currentUser = user;
@@ -28,6 +30,12 @@ export class ChallengesComponent implements OnInit {
 
   ngOnInit() {
     this.loadAllChallenges();
+  }
+
+  openDialog(id: number): void {
+    if(confirm("Are you sure to delete " + id)) {
+      this.deleteChallenge(id)
+    }
   }
 
   onSelectChallenge(challenge: Challenge): void {
@@ -52,6 +60,7 @@ createChallenge() {
 }
 
 deleteChallenge(id: number) {
+
   this.challengeService.delete(id).pipe(first()).subscribe(() => {
       this.loadAllChallenges()
   });
