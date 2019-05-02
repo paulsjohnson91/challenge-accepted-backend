@@ -22,6 +22,7 @@ import { CreateChallengeComponent } from './create-challenge/create-challenge.co
 import { MaterialModule } from './material.module';
 import { IgxIconModule, IgxNavbarModule, IgxNavigationDrawerModule } from "igniteui-angular";
 import { NavdrawerComponent } from './navdrawer/navdrawer.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { NavdrawerComponent } from './navdrawer/navdrawer.component';
     ChallengesComponent,
     CreateChallengeComponent,
     NavdrawerComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

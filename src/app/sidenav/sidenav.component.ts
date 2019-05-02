@@ -4,17 +4,21 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../_services';
 
 @Component({
-  selector: 'app-navdrawer',
-  templateUrl: './navdrawer.component.html',
-  styleUrls: ['./navdrawer.component.scss']
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.scss']
 })
-export class NavdrawerComponent implements OnInit {
+export class SidenavComponent implements OnInit {
 
   constructor(        private router: Router,
     private authenticationService: AuthenticationService) { }
 
-
   ngOnInit() {
   }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+}
 
 }

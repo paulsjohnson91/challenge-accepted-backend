@@ -3,8 +3,8 @@
     <ng-template igxDrawer>
       <nav>
         <span igxDrawerItem [isHeader]="true"> Challenges </span>
-        <span igxDrawerItem igxRipple> Create </span>
-        <span igxDrawerItem igxRipple> View </span>
+        <span igxDrawerItem igxRipple (onaction)="nav.setChecked(true)"><a routerLink="/createchallenge">Create</a></span>
+        <span igxDrawerItem igxRipple [active]="true"><a routerLink="/challenges">View</a></span>
         <!-- <span igxDrawerItem igxRipple [active]="true"> Drafts </span> -->
         <span igxDrawerItem igxRipple [isHeader]="true"> Login </span>
       </nav>
@@ -17,3 +17,20 @@
     </section>
   </main>
 </div>
+
+<!-- <header>
+  <div class="container">
+    <a routerLink="/" class="logo">{{ appTitle }}</a>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/about">About</a></li>
+        <li><a routerLink="/contact">Contact us</a></li>
+        <li><a routerLink="/challenges">Challenges</a></li>
+
+        <li><a routerLink="/login">Login</a></li>
+        <li><a (click)="logout()">logout</a></li>
+      </ul>
+    </nav>
+  </div>
+</header> -->
