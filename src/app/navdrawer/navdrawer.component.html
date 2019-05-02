@@ -1,0 +1,19 @@
+<div class="content-wrap">
+  <igx-nav-drawer id="navigation" #drawer [isOpen]="true">
+    <ng-template igxDrawer>
+      <nav>
+        <span igxDrawerItem [isHeader]="true"> Challenges </span>
+        <span igxDrawerItem igxRipple> Create </span>
+        <span igxDrawerItem igxRipple> View </span>
+        <!-- <span igxDrawerItem igxRipple [active]="true"> Drafts </span> -->
+        <span igxDrawerItem igxRipple [isHeader]="true"> Login </span>
+      </nav>
+    </ng-template>
+  </igx-nav-drawer>
+
+  <main>
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>

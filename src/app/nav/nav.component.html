@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <div class="container">
     <a routerLink="/" class="logo">{{ appTitle }}</a>
     <nav>
@@ -13,4 +13,10 @@
       </ul>
     </nav>
   </div>
-</header>
+</header> -->
+  <igx-navbar title="{{ appTitle }}" actionButtonIcon="menu">
+      <a (click)="logout()">logout</a>
+      <igx-icon>search</igx-icon>
+      <igx-icon>favorite</igx-icon>
+      <igx-icon>more_vert</igx-icon>
+  </igx-navbar>

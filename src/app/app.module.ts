@@ -18,8 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { CreateChallengeComponent } from './create-challenge/create-challenge.component'
+import { CreateChallengeComponent } from './create-challenge/create-challenge.component';
 import { MaterialModule } from './material.module';
+import { IgxIconModule, IgxNavbarModule, IgxNavigationDrawerModule } from "igniteui-angular";
+import { NavdrawerComponent } from './navdrawer/navdrawer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { MaterialModule } from './material.module';
     LoginComponent,
     ChallengesComponent,
     CreateChallengeComponent,
+    NavdrawerComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,15 +46,16 @@ import { MaterialModule } from './material.module';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MaterialModule 
+    MaterialModule,
+    IgxIconModule,
+    IgxNavbarModule,
+    IgxNavigationDrawerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-    // provider used to create fake backend
-    // fakeBackendProvider
-],
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
